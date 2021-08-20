@@ -1,6 +1,6 @@
 {
   "name": "folderbeam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "beam folders using hyperbeam!",
   "main": "index.js",
   "type": "module",
@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "commander": "^8.1.0",
     "hyperbeam": "^1.1.3",
-    "minimist": "^1.2.5",
     "random-words": "^1.1.1",
     "tar": "^6.1.10"
   }
