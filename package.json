@@ -1,6 +1,6 @@
 {
   "name": "folderbeam",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "beam folders using hyperbeam!",
   "main": "index.js",
   "type": "module",
