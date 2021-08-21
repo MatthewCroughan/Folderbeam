@@ -3,7 +3,9 @@
 import { Command } from "commander";
 import rw from "random-words";
 import Hyperbeam from "hyperbeam";
-import { createTar, extractTar } from "../lib/main.mjs";
+import tar from "tar-fs";
+import fs from "fs";
+import gunzip from "gunzip-maybe";
 
 const program = new Command();
 
@@ -42,9 +44,13 @@ if (opts.indir) {
   if (!opts.key) {
     key = rw({ exactly: 3, join: " " });
   }
-
+  if (!fs.existsSync(opts.indir)) {
+    console.log("error :", opts.indir, "directory does not exists");
+    process.exit();
+  }
+  const stream = tar.pack(opts.indir);
   const beam = new Hyperbeam(key);
-  const stream = createTar(opts.indir);
+
   setupBeam(beam);
 
   console.log(`\n\t\t KEY : '${key}' \t\t\n`);
@@ -54,7 +60,7 @@ if (opts.indir) {
     beam.end();
   });
 
-  stream.pipe(beam);
+  stream.pipe(gunzip(3)).pipe(beam);
 } else if (opts.outdir) {
   if (!opts.key) {
     console.log("error: key required!, folderbeam --help for usage");
@@ -62,7 +68,7 @@ if (opts.indir) {
   }
   const beam = new Hyperbeam(opts.key);
 
-  const stream = extractTar(opts.outdir);
+  const stream = tar.extract(opts.outdir);
 
   setupBeam(beam);
   beam.pipe(stream);
