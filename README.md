@@ -1,3 +1,11 @@
+## Installation
+
+`npm i -g folderbeam`
+
+or use without installation
+
+`npx folderbeam <options>`
+
 ## Example usage :
 
 on alice's machine :

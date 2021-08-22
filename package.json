@@ -1,6 +1,6 @@
 {
   "name": "folderbeam",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "beam folders using hyperbeam!",
   "main": "index.js",
   "type": "module",
@@ -9,13 +9,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Solvenc1no",
+  "license": "MIT",
   "dependencies": {
     "commander": "^8.1.0",
     "gunzip-maybe": "^1.4.2",
     "hyperbeam": "^1.1.3",
     "random-words": "^1.1.1",
     "tar-fs": "^2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solvencino/Folderbeam"
   }
 }

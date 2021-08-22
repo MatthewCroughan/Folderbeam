@@ -68,7 +68,10 @@ if (opts.indir) {
   }
   const beam = new Hyperbeam(opts.key);
 
-  const stream = tar.extract(opts.outdir);
+  const stream = tar.extract(opts.outdir, {
+    readable: true,
+    writable: true,
+  });
 
   setupBeam(beam);
   beam.pipe(stream);
